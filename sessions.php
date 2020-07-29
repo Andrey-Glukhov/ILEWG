@@ -29,7 +29,8 @@ get_header(); ?>
   $args = array(
      'post_type' => 'session',
 		 'post_status' => 'publish',
-		'session_category' => 'iceum',
+		'category_name' => 'iceum',
+    'posts_per_page' => -1,
   );
 
 $sessions = new WP_Query($args);
