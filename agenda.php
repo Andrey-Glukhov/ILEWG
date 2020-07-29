@@ -25,21 +25,28 @@ get_header(); ?>
         </div>
         <div class="sort_by">
           <div class="btn-group">
-            <button class="btn btn-secondary btn-sm" type="button">
-              CATEGORY
-            </button>
-            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-              ...
-            </div>
+            <!-- CATEGORY SELECT -->
+            <div class="agenda_category_label">CATEGORY</div>
+            <select name="" id="agenda_cetegory_select">
+            <?php 
+              global $wpdb;
+                $wpdb->show_errors();
+                 $result = $wpdb->get_results("SELECT DISTINCT `wp_postmeta`.`meta_value` FROM `wp_posts` LEFT JOIN `wp_postmeta` ON  `wp_posts`.`ID` = `wp_postmeta`.`post_id` WHERE `wp_posts`.`post_type` = 'events' AND `wp_postmeta`.`meta_key` = 'event_category'");
+            ?>
+             <option>All</option>";
+            <?php
+              foreach($result as $category_name ) {
+                 echo "<option>{$category_name->meta_value}</option>";
+              }
+            ?>
+            </select>
+           <!-- menu was here? -->
           </div>
         </div>
       </div>
     </div>
 <div class="row justify-content-center month_switch">
-  <div class="col-md-1 arrow_col">
+  <div class="col-md-1 arrow_col" id="arr_left">
     <a><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 521 196.76">
   <defs>
     <style>
@@ -59,9 +66,24 @@ get_header(); ?>
 </a>
   </div>
   <div class="col-auto col-month">
-    <h2> 10.2020</h2>
+  <?php 
+  $date_list = $wpdb->get_results("SELECT DISTINCT DATE_FORMAT(`wp_postmeta`.`meta_value`, '%m.%Y') AS date_value FROM `wp_posts` LEFT JOIN `wp_postmeta` ON `wp_posts`.`ID` = `wp_postmeta`.`post_id` WHERE `wp_posts`.`post_type` = 'events' AND `wp_postmeta`.`meta_key` = 'date_time' ORDER BY date_value");
+ ?>
+ 
+ <?php
+ $date_today= date_format(new DateTime(), 'm.Y');
+ 
+ foreach($date_list as $post_date ) {
+   if ( $post_date->date_value == $date_today) {
+    echo "<div class='agenda_date_active'>{$post_date->date_value}</div>";
+  } else {
+    echo "<div class='agenda_date'>{$post_date->date_value}</div>";
+  }
+ }
+?>
+ </select>
   </div>
-  <div class="col-md-1 arrow_col">
+  <div class="col-md-1 arrow_col" id="arr_right">
     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 521 196.76">
       <defs>
         <style>
@@ -82,29 +104,9 @@ get_header(); ?>
   </div>
 </div>
 </div>
-<div class="container">
+<div class="container" id= 'filter-rezult'>
 
-<?php
-$agenda = new WP_Query( array(
-    'post_type' => 'events',
-    'posts_per_page' => -1
-  )
-);
-if ( $agenda->have_posts() ) : while ( $agenda->have_posts() ) : $agenda->the_post(); ?>
-<a href="<?php the_permalink(); ?>"><div class="row events_row">
-  <div class="col-3 event_date">
-    <p><?php the_field('date_time'); ?></p>
-  </div>
-  <div class="col-1 event_category">
-    <p><?php the_field('event_category'); ?></p>
-  </div>
-  <div class="col-8 event_category">
-    <h2><?php the_title(); ?></h2>
-    <p><?php the_field('short_description'); ?></p>
-  </div>
 
-</div></a>
-<?php endwhile; endif; wp_reset_query(); ?>
 </div>
 </div>
 

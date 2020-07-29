@@ -114,7 +114,7 @@ home page
 .opener{
   width: 100vw;
   height: 100vh;
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/05/moon_illustration_a.png);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/05/moon_illustration_a.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -133,7 +133,7 @@ task groups
 }
 .taskgroups_intro_image{
   height: 100vh;
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/05/spacewastedaannew2.jpg);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/05/spacewastedaannew2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -214,7 +214,7 @@ sessions
 .iceum{
   height: 100vh;
   width:100%;
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/chuttersnap-Q_KdjKxntH8-unsplash-scaled.jpg);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/07/chuttersnap-Q_KdjKxntH8-unsplash-scaled.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
@@ -225,7 +225,7 @@ sessions
 .co-sponsored{
   height: 100vh;
   width:100%;
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/christian-fregnan-WTWvcuIpm1c-unsplash-scaled.jpg);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/07/christian-fregnan-WTWvcuIpm1c-unsplash-scaled.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
@@ -292,7 +292,7 @@ agenda
 }
 .agenda_image{
   background-position: right;
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/Untitled-1.jpg);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/07/Untitled-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 70vh;
@@ -316,6 +316,23 @@ align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.agenda_category_label,#agenda_cetegory_select {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  position: relative;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+}
+.agenda_date     {
+  visibility: hidden;
+}
+.agenda_date_active     {
+  visibility: visible;
 }
 /*--------------------------------------------------------------
 responsive
