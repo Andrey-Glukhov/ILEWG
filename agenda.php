@@ -75,7 +75,7 @@ get_header(); ?>
  
  foreach($date_list as $post_date ) {
    if ( $post_date->date_value == $date_today) {
-    echo "<div class='agenda_date_active'>{$post_date->date_value}</div>";
+    echo "<div class='agenda_date agenda_date_active'>{$post_date->date_value}</div>";
   } else {
     echo "<div class='agenda_date'>{$post_date->date_value}</div>";
   }

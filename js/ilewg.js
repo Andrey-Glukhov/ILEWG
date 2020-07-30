@@ -15,18 +15,13 @@ $(document).ready(function () {
       $.ajax({
         url: url_ajax.url,
         data: {
-          post_date_select: filterDate, //value of selection
+          post_date_select: filterDate, 
           post_category_select: filterCategory,
           action: 'filter_action'
         },
-        type: 'post', // POST
+        type: 'post',
         action: 'filter_action',
-        beforeSend: function (xhr) {
-          //console.log('before', xhr);
-          //filter.find('button').text('Применяем фильтр...'); 
-        },
         success: function (data) {
-          //console.log('success', data);
           $('#filter-rezult').html(data);
         }
       });
@@ -52,8 +47,6 @@ $(document).ready(function () {
       }
       submitForm();
     });
-   // $('#arr_right').click(submitForm);
-    //$('#post-date-filter').submit(submitForm);
-    submitForm();
+   submitForm();
   }
 });
