@@ -10,8 +10,6 @@ $(document).ready(function () {
     function submitForm() {
       var filterCategory = $('#agenda_cetegory_select')[0].value;
       var filterDate = $('.agenda_date_active')[0].innerText;
-      console.log(filterCategory);
-      console.log(filterDate);
       $.ajax({
         url: url_ajax.url,
         data: {
@@ -30,7 +28,6 @@ $(document).ready(function () {
     agenda_cetegory_select
     $('#agenda_cetegory_select').change(submitForm);
     $('#arr_left').click(function() {
-      console.log('click');
       if ($('.agenda_date_active').prev().length) {
         elem = $('.agenda_date_active'); 
         $('.agenda_date_active').prev().addClass('agenda_date_active');
@@ -39,7 +36,6 @@ $(document).ready(function () {
       submitForm();
     });
     $('#arr_right').click(function() {
-      console.log('click');
       if ($('.agenda_date_active').next().length) {
         elem = $('.agenda_date_active'); 
         $('.agenda_date_active').next().addClass('agenda_date_active');

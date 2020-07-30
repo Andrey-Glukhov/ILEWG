@@ -55,8 +55,8 @@ function filter_action_callback() {
     ); 
   }
   $myquery = new WP_Query( $date_query );
-   if($myquery->have_posts()):
-       while($myquery->have_posts()):
+   if($myquery->have_posts()) {
+       while($myquery->have_posts()) {
            $myquery->the_post();
            $result_html .="<a href=\"".get_the_permalink()."\">
            <div class=\"row events_row\">
@@ -76,10 +76,29 @@ function filter_action_callback() {
            
            </div>
            </a>";
-         endwhile;
-    endif;
+       };
+      } else {
+        $result_html .="<a href=\"".get_the_permalink()."\">
+           <div class=\"row events_row\">
+             <div class=\"col-3 event_date\">
+               <p>";
+               $result_html .= '' ."</p>
+              </div>
+             <div class=\"col-1 event_category\">
+               <p>".''."</p>
+             </div>
+             <div class=\"col-8 event_category\">
+               <h2>".'NO EVENTS FOUND'."</h2>
+               <p>".''."</p>
+             </div>
+           
+           </div>
+           </a>";
+      };
     wp_reset_query(); 
 	echo $result_html;
 
 	wp_die();
 }
+
+
