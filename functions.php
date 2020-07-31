@@ -5,11 +5,11 @@ function ilewg_script_enqueue(){
 //js
   wp_enqueue_script('jquery');
   wp_enqueue_script( 'ilewg-js', get_template_directory_uri() . '/js/ilewg.js', array('jquery'), '1.0.0', true );
-  wp_localize_script( 'ilewg-js', 'url_ajax', 
+  wp_localize_script( 'ilewg-js', 'url_ajax',
 		array(
 			'url' => admin_url('admin-ajax.php')
 		)
-	);  
+	);
 
 }
 add_action( 'wp_enqueue_scripts', 'ilewg_script_enqueue' );
@@ -46,34 +46,37 @@ function filter_action_callback() {
               ),
             ),
          );
-  }   
+  }
   if (isset($_POST['post_category_select']) && $_POST['post_category_select'] != "All") {
     $date_query['meta_query'][] = array(
       'key'     => 'event_category',
       'value'   =>  $_POST['post_category_select'],
       'compare' => '='
-    ); 
+    );
   }
   $myquery = new WP_Query( $date_query );
    if($myquery->have_posts()) {
        while($myquery->have_posts()) {
            $myquery->the_post();
-           $result_html .="<a href=\"".get_the_permalink()."\">
-           <div class=\"row events_row\">
-             <div class=\"col-3 event_date\">
+           $result_html .="<a class=\"event_link\" href=\"".get_the_permalink()."\">
+           <div class=\"row events_row justify-content-center\">
+             <div class=\"col-2 event_date\">
                <p>";
                $date_obj = date_create_from_format('d/m/Y H:i a',get_field('date_time'));
-               $date_fotmat_str = date_format($date_obj,'d l'). '</br>' . date_format($date_obj,'H:i');
+               $date_fotmat_str = '<span class="date_big">' .date_format($date_obj,'d'). '</span></br></br>' .date_format($date_obj,'l'). '</br>' . date_format($date_obj,'H:i');
                $result_html .= $date_fotmat_str ."</p>
               </div>
              <div class=\"col-1 event_category\">
-               <p>".get_field('event_category')."</p>
-             </div>
-             <div class=\"col-8 event_category\">
+								 <div class=\"category_group\">
+								 	<img class=\"category_symbol\" src=\"".wp_get_upload_dir()['baseurl']."/2020/07/".get_field('event_category').".png\">
+		               <p>".get_field('event_category')."</p>
+		             </div>
+						 </div>
+             <div class=\"col-md-6 col-sm-8 col-12 ml-auto event_content\">
                <h2>".get_the_title()."</h2>
                <p>".get_field('short_description')."</p>
              </div>
-           
+
            </div>
            </a>";
        };
@@ -91,14 +94,12 @@ function filter_action_callback() {
                <h2>".'NO EVENTS FOUND'."</h2>
                <p>".''."</p>
              </div>
-           
+
            </div>
            </a>";
       };
-    wp_reset_query(); 
+    wp_reset_query();
 	echo $result_html;
 
 	wp_die();
 }
-
-

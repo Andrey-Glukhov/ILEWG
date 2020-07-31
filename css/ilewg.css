@@ -201,8 +201,8 @@ sessions
   background-color: black;
 }
 /*.page_header{
-  transform-origin: top left;
-  transform: rotate(-90deg) translate(-100px);
+transform-origin: top left;
+transform: rotate(-90deg) translate(-100px);
 } */
 .page_header>h1{
   font-size: 1.5rem;
@@ -252,12 +252,13 @@ agenda
   padding: 0;
 }
 .agenda_header{
-  border-bottom: solid black 2px;
+  background-color: #000000;
+  border-top: 1px solid white;
 }
 .agenda_header>h1{
   font-family: 'Share Tech Mono', monospace;
-  color: #000000;
-  font-size: 2rem;
+  color: #ffffff;
+  font-size: 3.5rem;
   text-align: center;
   padding: 10px;
   margin: 0;
@@ -284,7 +285,7 @@ agenda
 .agenda_descr>p{
   font-family: 'Share Tech Mono', monospace;
   color: #000000;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 .sort_by{
@@ -296,14 +297,15 @@ agenda
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 70vh;
+  height: 100%;
 }
 .month_switch{
-  padding: 20px 0;
+  padding: 60px 0;
 }
 .col-month{
-justify-content: center;
-display: flex;
-align-items: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 .col-month>h2{
   text-align: center;
@@ -317,23 +319,101 @@ align-items: center;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  }
+}
 .agenda_category_label,#agenda_cetegory_select {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  border:none;
   position: relative;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  padding: .25rem .5rem;
-  font-size: .875rem;
-  line-height: 1.5;
+
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 }
-.agenda_date     {
+.agenda_category_label{
+  color: #ffffff;
+  padding: .25rem .5rem;
+}
+#agenda_cetegory_select{
+  color: #000000;
+  padding: .25rem 2rem .25rem .25rem;
+}
+.agenda_date {
   visibility: hidden;
+  position: absolute;
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 3.5rem;
+  text-align: center;
 }
 .agenda_date_active     {
   visibility: visible;
+}
+#filter-rezult{
+  min-height: 85vh;
+}
+.category_group{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+  transform: rotate(90deg);
+}
+.category_group>p{
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 1.2rem;
+  padding: 0 5px;
+}
+.category_symbol{
+  width: 35px;
+  height: auto;
+}
+a.event_link{
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+.events_row{
+  padding: 30px 0;
+  border-bottom: 1.2px solid #000000;
+}
+span.date_big{
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+}
+.event_content>h2{
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 2rem;
+  line-height: 2.2rem;
+}
+.event_content>p{
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+.event_date>p{
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+.sort_by{
+  display: flex;
+  padding: 10px 20px;
+  justify-content: flex-end;
+}
+.sort_by>p{
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 }
 /*--------------------------------------------------------------
 responsive

@@ -8,27 +8,21 @@ get_header(); ?>
     <div class = "row row-eq-height" >
       <div class = "col-md-8 col-sm-12 agenda_intro">
         <div class="agenda_image"></div>
-        <div class="agenda_header"><h1>INTERNATIONAL LUNAR EXPLORATION GROUP AGENDA</h1></div>
-
       </div>
-      <div class = "col-md-4 col-sm-12 agenda_overview">
+      <div class = "col-md-4 order-md-1 order-sm-12 order-12 col-sm-12 agenda_overview">
         <div class="agenda_descr">
           <p>
             Following the Beatenberg Declaration (3 June 1994), space agencies
             from all over the world met in Hamburg, at the EGS Moon Workshop
             (3 - 7 April 1995) and in full agreement decided to create an International
             Lunar Exploration Working Group (ILEWG). The charter of ILEWG is:<br><br>
-            To develop an international strategy for the exploration of the Moon<br><br>
-            To establish a forum and mechanisms for the communication and coordination of activities<br><br>
-            To implement international coordination and cooperation
           </p>
         </div>
         <div class="sort_by">
-          <div class="btn-group">
             <!-- CATEGORY SELECT -->
-            <div class="agenda_category_label">CATEGORY</div>
+            <div class="agenda_category_label">SORT BY</div>
             <select name="" id="agenda_cetegory_select">
-            <?php 
+            <?php
               global $wpdb;
                 $wpdb->show_errors();
                  $result = $wpdb->get_results("SELECT DISTINCT `wp_postmeta`.`meta_value` FROM `wp_posts` LEFT JOIN `wp_postmeta` ON  `wp_posts`.`ID` = `wp_postmeta`.`post_id` WHERE `wp_posts`.`post_type` = 'events' AND `wp_postmeta`.`meta_key` = 'event_category'");
@@ -41,12 +35,12 @@ get_header(); ?>
             ?>
             </select>
            <!-- menu was here? -->
-          </div>
         </div>
       </div>
+        <div class="col-12 order-sm-1 order-1 order-md-12 agenda_header"><h1>ILEWG AGENDA</h1></div>
     </div>
 <div class="row justify-content-center month_switch">
-  <div class="col-md-1 arrow_col" id="arr_left">
+  <div class="col-lg-1 col-md-2 col-3 arrow_col" id="arr_left">
     <a><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 521 196.76">
   <defs>
     <style>
@@ -65,11 +59,11 @@ get_header(); ?>
 </svg>
 </a>
   </div>
-  <div class="col-auto col-month">
-  <?php 
+  <div class="col-md-3 col-sm-6 col-6 col-month">
+  <?php
   $date_list = $wpdb->get_results("SELECT DISTINCT DATE_FORMAT(`wp_postmeta`.`meta_value`, '%m.%Y') AS date_value , `wp_postmeta`.`meta_value`FROM `wp_posts` LEFT JOIN `wp_postmeta` ON `wp_posts`.`ID` = `wp_postmeta`.`post_id` WHERE `wp_posts`.`post_type` = 'events' AND `wp_postmeta`.`meta_key` = 'date_time' ORDER BY `wp_postmeta`.`meta_value`");
  ?>
- 
+
  <?php
  $date_today= date_format(new DateTime(), 'm.Y');
 
@@ -83,8 +77,8 @@ get_header(); ?>
 
   $period = new DatePeriod($real_start, $interval, $realEnd);
 
-  foreach($period as $date) { 
-      $final_list[] = $date->format($format); 
+  foreach($period as $date) {
+      $final_list[] = $date->format($format);
   }
 
   return $final_list;
@@ -100,7 +94,7 @@ foreach($date_list_fill as $post_date ) {
 ?>
  </select>
   </div>
-  <div class="col-md-1 arrow_col" id="arr_right">
+  <div class="col-lg-1 col-md-2 col-3 arrow_col" id="arr_right">
     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 521 196.76">
       <defs>
         <style>
