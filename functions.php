@@ -84,16 +84,9 @@ function filter_action_callback() {
            </a>";
        };
       } else {
-        $result_html .="<a href=\"".get_the_permalink()."\">
-           <div class=\"row events_row\">
-             <div class=\"col-3 event_date\">
-               <p>";
-               $result_html .= '' ."</p>
-              </div>
-             <div class=\"col-1 event_category\">
-               <p>".''."</p>
-             </div>
-             <div class=\"col-8 event_category\">
+        $result_html .="<a class=\"event_link\" href=\"".get_the_permalink()."\">
+           <div class=\"row events_row justify-content-center\">
+             <div class=\"col-8 no_event_content\">
                <h2>".'NO EVENTS FOUND'."</h2>
                <p>".''."</p>
              </div>
