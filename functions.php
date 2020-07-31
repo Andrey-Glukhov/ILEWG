@@ -37,6 +37,9 @@ function filter_action_callback() {
         $date_query = array(
             'post_type'  => 'events',
              'numberposts' => -1,
+             'meta_key'			=> 'date_time',
+            'orderby'			=> 'meta_value',
+            'order'				=> 'ASC',
              'meta_query' => array(
               array(
                 'key'     => 'date_time',
