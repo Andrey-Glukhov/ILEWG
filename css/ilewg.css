@@ -200,10 +200,10 @@ sessions
   height:100%;
   background-color: black;
 }
-.page_header{
-  /*transform-origin: top left;
-  transform: rotate(-90deg) translate(-100px);*/
-}
+/*.page_header{
+  transform-origin: top left;
+  transform: rotate(-90deg) translate(-100px);
+} */
 .page_header>h1{
   font-size: 1.5rem;
 }
@@ -316,7 +316,8 @@ align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
+  cursor: pointer;
+  }
 .agenda_category_label,#agenda_cetegory_select {
   color: #fff;
   background-color: #6c757d;

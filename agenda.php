@@ -67,17 +67,34 @@ get_header(); ?>
   </div>
   <div class="col-auto col-month">
   <?php 
-  $date_list = $wpdb->get_results("SELECT DISTINCT DATE_FORMAT(`wp_postmeta`.`meta_value`, '%m.%Y') AS date_value FROM `wp_posts` LEFT JOIN `wp_postmeta` ON `wp_posts`.`ID` = `wp_postmeta`.`post_id` WHERE `wp_posts`.`post_type` = 'events' AND `wp_postmeta`.`meta_key` = 'date_time' ORDER BY date_value");
+  $date_list = $wpdb->get_results("SELECT DISTINCT DATE_FORMAT(`wp_postmeta`.`meta_value`, '%m.%Y') AS date_value , `wp_postmeta`.`meta_value`FROM `wp_posts` LEFT JOIN `wp_postmeta` ON `wp_posts`.`ID` = `wp_postmeta`.`post_id` WHERE `wp_posts`.`post_type` = 'events' AND `wp_postmeta`.`meta_key` = 'date_time' ORDER BY `wp_postmeta`.`meta_value`");
  ?>
  
  <?php
  $date_today= date_format(new DateTime(), 'm.Y');
- 
- foreach($date_list as $post_date ) {
-   if ( $post_date->date_value == $date_today) {
-    echo "<div class='agenda_date_active'>{$post_date->date_value}</div>";
+
+ function fill_date_list($start_list, $format = 'Y-m-d') {
+  $final_list = array();
+  $interval = new DateInterval('P1M');
+  $real_start = new DateTime('01.'.$start_list[0]->date_value);
+  $list_end =  $start_list[count($start_list)-1]->date_value;
+  $realEnd = new DateTime('01.12.'.substr($list_end,3));
+  $realEnd->add($interval);
+
+  $period = new DatePeriod($real_start, $interval, $realEnd);
+
+  foreach($period as $date) { 
+      $final_list[] = $date->format($format); 
+  }
+
+  return $final_list;
+}
+$date_list_fill = fill_date_list($date_list,'m.Y');
+foreach($date_list_fill as $post_date ) {
+   if ( $post_date == $date_today) {
+    echo "<div class='agenda_date agenda_date_active'>{$post_date}</div>";
   } else {
-    echo "<div class='agenda_date'>{$post_date->date_value}</div>";
+    echo "<div class='agenda_date'>{$post_date}</div>";
   }
  }
 ?>

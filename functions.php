@@ -41,29 +41,31 @@ function filter_action_callback() {
               array(
                 'key'     => 'date_time',
                 'value'   => array($select_date->format("Ymd"),$select_date_end->format("Ymd")),
-               // 'value'   => array('20200701','20200801'),
                 'compare' => 'BETWEEN',
-                'type'          => 'DATETIME'
+                'type'    => 'DATETIME'
               ),
             ),
          );
   }   
-//   if (isset($_POST['post_category_select']) && $_POST['post_category_select'] != "All") {
-    
-//     $date_query['category_name'] =
-//     $date_query['category_name'] = $_POST['post_category_select'];
-// }   
-
- $result_html = var_export($select_date->format("Ymd"), TRUE) ."----". var_export($select_date_end->format("Ymd"), TRUE);
-   $myquery = new WP_Query( $date_query );
-   if($myquery->have_posts()):
-       while($myquery->have_posts()):
+  if (isset($_POST['post_category_select']) && $_POST['post_category_select'] != "All") {
+    $date_query['meta_query'][] = array(
+      'key'     => 'event_category',
+      'value'   =>  $_POST['post_category_select'],
+      'compare' => '='
+    ); 
+  }
+  $myquery = new WP_Query( $date_query );
+   if($myquery->have_posts()) {
+       while($myquery->have_posts()) {
            $myquery->the_post();
            $result_html .="<a href=\"".get_the_permalink()."\">
            <div class=\"row events_row\">
              <div class=\"col-3 event_date\">
-               <p>".get_field('date_time')."</p>
-             </div>
+               <p>";
+               $date_obj = date_create_from_format('d/m/Y H:i a',get_field('date_time'));
+               $date_fotmat_str = date_format($date_obj,'d l'). '</br>' . date_format($date_obj,'H:i');
+               $result_html .= $date_fotmat_str ."</p>
+              </div>
              <div class=\"col-1 event_category\">
                <p>".get_field('event_category')."</p>
              </div>
@@ -74,11 +76,29 @@ function filter_action_callback() {
            
            </div>
            </a>";
-          //$result_html =get_field('short_description'); 
-       endwhile;
-    endif;
+       };
+      } else {
+        $result_html .="<a href=\"".get_the_permalink()."\">
+           <div class=\"row events_row\">
+             <div class=\"col-3 event_date\">
+               <p>";
+               $result_html .= '' ."</p>
+              </div>
+             <div class=\"col-1 event_category\">
+               <p>".''."</p>
+             </div>
+             <div class=\"col-8 event_category\">
+               <h2>".'NO EVENTS FOUND'."</h2>
+               <p>".''."</p>
+             </div>
+           
+           </div>
+           </a>";
+      };
     wp_reset_query(); 
 	echo $result_html;
 
 	wp_die();
 }
+
+
