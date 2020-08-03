@@ -423,6 +423,56 @@ span.date_big{
   line-height: 1.5rem;
 }
 /*--------------------------------------------------------------
+missions
+--------------------------------------------------------------*/
+.mission_col{
+  min-height: 90vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.mission_col>h2{
+  transform: rotate(-90deg) translate(0px, -100px);
+  transform-origin: top center;
+  height: fit-content;
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 5px 10px;
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  /*width: 100vh;*/
+  text-align: center;
+}
+
+.past{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/Clem_DSPSE.jpg);
+  background-position: center;
+}
+.current{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/5d22e22da31058950191af65.jpeg);
+  background-position: center;
+}
+.resources{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/files_ddr_archive_1633406-scaled.jpg);
+  background-position: right;
+}
+.mission_header{
+  background-color: #000000;
+}
+.mission_header>h1{
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+/*--------------------------------------------------------------
 responsive
 --------------------------------------------------------------*/
 /*xs*/
