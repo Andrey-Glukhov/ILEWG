@@ -472,6 +472,90 @@ missions
   padding: 10px;
   margin: 0;
 }
+#accordionExample{
+  overflow: hidden;
+  height: 90vh;
+}
+.accordion_wraper{
+  overflow-y: scroll;
+  height: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.accordion_wraper::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+}
+.mission_year>p{
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 2.2rem;
+  margin: 0;
+}
+.mission_year{
+  display: flex;
+  align-items: center;
+}
+.mission_name>h3{
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 2.2rem;
+  margin: 0;
+}
+.mission_name{
+  display: flex;
+  align-items: center;
+}
+.past_missions_row{
+  padding: 20px 0;
+  border-top: 1px solid black;
+}
+.mission-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.unfold{
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 2.2rem;
+  text-align: center;
+  text-decoration: none;
+    cursor: pointer;
+}
+.unfold:hover{
+  color: black;
+  text-decoration: none;
+}
+
+.mission-header:hover{
+  color: black;
+  text-decoration: none;
+}
+.card-body>p{
+  font-family: 'Share Tech Mono', monospace;
+  color: #000000;
+  font-size: 1.2rem;
+}
+.card-body>p>a{
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  font-size: 1.2rem;
+  background-color: #000000;
+  padding: 5px;
+}
+a.close_button{
+  display: flex;
+    background-color: black;
+    width: fit-content;
+    color: white;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+a.close_button>p{
+  margin: 5px;
+  color: white;
+}
 /*--------------------------------------------------------------
 responsive
 --------------------------------------------------------------*/
