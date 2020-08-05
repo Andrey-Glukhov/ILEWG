@@ -293,7 +293,7 @@ agenda
 }
 .agenda_image{
   background-position: right;
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/Untitled-1.jpg);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/07/Untitled-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 70vh;
@@ -450,15 +450,15 @@ missions
 }
 
 .past{
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/Clem_DSPSE.jpg);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/08/Clem_DSPSE.jpg);
   background-position: center;
 }
 .current{
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/5d22e22da31058950191af65.jpeg);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/08/5d22e22da31058950191af65.jpeg);
   background-position: center;
 }
 .resources{
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/files_ddr_archive_1633406-scaled.jpg);
+  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/08/files_ddr_archive_1633406-scaled.jpg);
   background-position: right;
 }
 .mission_header{

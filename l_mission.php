@@ -25,8 +25,8 @@ get_header(); ?>
       <div class="accordion col-md-8 col-sm-12 order-md-2 order-sm-2 order-2 d-none" id="accordionPast">
 
         <div class="container accordion_wraper">
-          <div class-"row">
-            <div class-"col-12">
+          <div class="row">
+            <div class="col-12">
               <a class="close_button"><p>Close</p><p>X</p></a>
             </div>
           </div>
@@ -63,8 +63,8 @@ get_header(); ?>
 
   <div class="accordion col-md-8 col-sm-12 order-md-2 order-sm-2 order-2 d-none" id="accordionCurrent">
     <div class="container accordion_wraper">
-      <div class-"row">
-        <div class-"col-12">
+      <div class="row">
+        <div class="col-12">
           <a class="close_button"><p>Close</p><p>X</p></a>
         </div>
       </div>
@@ -101,16 +101,16 @@ get_header(); ?>
 
 <div class="accordion col-md-8 col-sm-12 order-md-2 order-sm-2 order-2 d-none" id="accordionResources">
   <div class="container accordion_wraper">
-    <div class-"row">
-      <div class-"col-12">
+    <div class="row">
+      <div class="col-12">
         <a class="close_button"><p>Close</p><p>X</p></a>
       </div>
     </div>
     <?php if( have_rows('information_resources') ): while( have_rows('information_resources') ) : the_row();
 
     // Load sub field value.
-    $ir_name = get_sub_field('resource_name');
-    $ir_descr = get_sub_field('about_mission');
+    $ir_name = get_sub_field('resources_name');
+    $ir_descr = get_sub_field('about_resource');
     $ir_class = get_sub_field('mission_class');?>
 
     <div class="row current_missions_row">
@@ -123,7 +123,7 @@ get_header(); ?>
         </a>
       </div>
     </div>
-    <div id="collapse <?php echo $ir_class ?>" class="row justify-content-end collapse" aria-labelledby="<?php echo $ir_class ?>" data-parent="#accordionResources">
+    <div id="collapse<?php echo $ir_class ?>" class="row justify-content-end collapse" aria-labelledby="<?php echo $ir_class ?>" data-parent="#accordionResources">
       <div class="col-9 card-body">
         <p><?php echo $ir_descr ?></p>
       </div>
@@ -136,18 +136,5 @@ get_header(); ?>
 </div>
 </div>
 </div>
-
-
-<script>
-$('.past').click(function() {
-
-  $(".current,.resources").addClass('d-none');
-  $("#accordionPast").removeClass('d-none');
-  gsap.from('#accordionPast', 3, {left:-100, opacity:0.1});
-       });
-
-
-</script>
-
 
 <?php get_footer(); ?>
