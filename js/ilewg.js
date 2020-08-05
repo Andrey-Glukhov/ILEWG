@@ -48,35 +48,38 @@ $(document).ready(function () {
   if ($('.missions_wraper').length) {
 
     $('.past').click(function () {
-
-      $(".current,.resources").addClass('d-none');
-      $("#accordionPast").removeClass('d-none');
-       gsap.from('#accordionPast', 2, {y:'100%'});
+      if ($("#accordionPast").hasClass('d-none')) {
+        $(".current,.resources").addClass('d-none');
+        $("#accordionPast").removeClass('d-none');
+        gsap.from('#accordionPast', 2, { y: '100%' });
+      }
     });
 
     $('.current').click(function () {
-
-      $(".past,.resources").addClass('d-none');
-      $("#accordionCurrent").removeClass('d-none');
-      $(this).removeClass('col-md-4 col-sm-12 order-md-2 order-sm-3 order-3');
-      $(this).addClass('col-md-4 col-sm-12 order-md-1 order-sm-2 order-2');
-      gsap.from('#accordionCurrent', 3, {y:'100%'});
+      if ($("#accordionCurrent").hasClass('d-none')) {
+        $(".past,.resources").addClass('d-none');
+        $("#accordionCurrent").removeClass('d-none');
+        $(this).removeClass('col-md-4 col-sm-12 order-md-2 order-sm-3 order-3');
+        $(this).addClass('col-md-4 col-sm-12 order-md-1 order-sm-2 order-2');
+        gsap.from('#accordionCurrent', 3, { y: '100%' });
+      }
     });
 
     $('.resources').click(function () {
-
-      $(".past,.current").addClass('d-none');
-      $("#accordionResources").removeClass('d-none');
-      $(this).removeClass('col-md-4 col-sm-12 order-md-3 order-sm-4 order-4');
-      $(this).addClass('col-md-4 col-sm-12 order-md-1 order-sm-2 order-2');
-      gsap.from('#accordionResources', 3, {y:'100%'});
+      if ($("#accordionResources").hasClass('d-none')) {
+        $(".past,.current").addClass('d-none');
+        $("#accordionResources").removeClass('d-none');
+        $(this).removeClass('col-md-4 col-sm-12 order-md-3 order-sm-4 order-4');
+        $(this).addClass('col-md-4 col-sm-12 order-md-1 order-sm-2 order-2');
+        gsap.from('#accordionResources', 3, { y: '100%' });
+      }
     });
     $('.close_button').click(function () {
       $(this).closest('.accordion').addClass('d-none');
-    $('.past').attr('class','col-md-4 col-sm-12 order-md-1 order-sm-2 order-2 mission_col past');
-    $('.current').attr('class','col-md-4 col-sm-12 order-md-2 order-sm-3 order-3 mission_col current');
-    $('.resources').attr('class','col-md-4 col-sm-12 order-md-3 order-sm-4 order-4 mission_col resources');
-    
-  });
-}
+      $('.past').attr('class', 'col-md-4 col-sm-12 order-md-1 order-sm-2 order-2 mission_col past');
+      $('.current').attr('class', 'col-md-4 col-sm-12 order-md-2 order-sm-3 order-3 mission_col current');
+      $('.resources').attr('class', 'col-md-4 col-sm-12 order-md-3 order-sm-4 order-4 mission_col resources');
+
+    });
+  }
 });
