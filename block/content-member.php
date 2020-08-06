@@ -15,15 +15,24 @@ $id = 'member-' . $block['id'];
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 ?>
-<blockquote id="<?php echo $id; ?>" class="member <?php echo $align_class; ?>">
-    <p><?php the_field('member_name'); ?></p>
-    <cite>
-    	<img src="<?php echo $avatar['url']; ?>" alt="<?php echo $avatar['alt']; ?>" />
-    	<span><?php the_field('member_affiliation'); ?></span>
-    </cite>
-</blockquote>
+<div id="<?php echo $id; ?>" class="member <?php echo $align_class; ?> row">
+<div class="col-md-6 col-sm-12">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+          <p><?php the_field('member_name'); ?></p>
+          <p><?php the_field('member_affiliation'); ?></p>
+      </div>
+      <div class="col-6">
+          <img src="<?php echo $avatar['url']; ?>" alt="<?php echo $avatar['alt']; ?>" />
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
 <style type="text/css">
-	#<?php echo $id; ?> {
+	<?php echo $id; ?> {
 		background: <?php the_field('background_color'); ?>;
 		color: <?php the_field('text_color'); ?>;
 	}

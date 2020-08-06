@@ -13,12 +13,13 @@ get_header(); ?>
         <h1>ABOUT ILEWG</h1>
       </div>
     </div>
+    </div>
+    <div class = "container">
     <div class="row justify-content-center">
       <?php $about_ilewg = new WP_Query(array( 'page_id' => 2 ));
 if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-
-      <div class="col-md-8 col-sm-12"><?php the_content(); ?></div>
+      <?php the_content(); ?>
   <?php
     endwhile;
     endif
