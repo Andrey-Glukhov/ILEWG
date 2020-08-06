@@ -25,6 +25,37 @@ add_theme_support('custom-header');
 add_theme_support('post-formats', array('aside', 'chat', 'gallery','link','image','quote','status','video'));
 add_theme_support('post-thumbnails');
 
+//AСF
+add_action('acf/init', 'my_acf_init');
+function my_acf_init() {
+
+	// check function exists
+	if( function_exists('acf_register_block') ) {
+
+		// register a testimonial block
+		acf_register_block(array(
+			'name'				=> 'member',
+			'title'				=> __('Member'),
+			'description'		=> __('A custom member block.'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'member', 'quote' ),
+		));
+	}
+}
+
+function my_acf_block_render_callback( $block ) {
+
+	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
+	$slug = str_replace('acf/', '', $block['name']);
+
+	// include a template part from within the "template-parts/block" folder
+	if( file_exists( get_theme_file_path("/block/content-{$slug}.php") ) ) {
+		include( get_theme_file_path("/block/content-{$slug}.php") );
+	}
+}
+
 //AJAX
 add_action('wp_ajax_filter_action', 'filter_action_callback');
 add_action('wp_ajax_nopriv_filter_action', 'filter_action_callback');

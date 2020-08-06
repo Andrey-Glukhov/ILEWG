@@ -119,7 +119,34 @@ home page
   background-size: contain;
   background-repeat: no-repeat;
 }
-
+/*--------------------------------------------------------------
+about
+--------------------------------------------------------------*/
+.about_header{
+  background-color: #000000;
+  z-index: 1000;
+}
+.about_header>h1{
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+.about_header_img{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/constructed_pillars_edit.jpg);
+  background-position: center;
+  height: 90vh;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+}
+.credit{
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
 /*--------------------------------------------------------------
 task groups
 --------------------------------------------------------------*/
@@ -423,8 +450,54 @@ span.date_big{
   line-height: 1.5rem;
 }
 /*--------------------------------------------------------------
+publications
+--------------------------------------------------------------*/
+.punlication_wraper{
+  background-color: #000000;
+}
+.punlication_col{
+  min-height: 90vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.punlication_header{
+  background-color: #000000;
+  z-index: 1000;
+}
+.punlication_header>h1{
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+.reports{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/files_paper_office_paperwork-scaled.jpg);
+  background-position: left;
+}
+.pubs{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/books_book_corners_paper-scaled.jpg);
+  background-position: center;
+}
+.news{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/news_newsletter_newspaper_1591767-copy-scaled.jpg);
+  background-position: center;
+}
+#accordionReports{
+  overflow: hidden;
+  height: 90vh;
+  background-color: white;
+}
+/*--------------------------------------------------------------
 missions
 --------------------------------------------------------------*/
+.missions_wraper{
+  background-color: #000000;
+}
 .mission_col{
   min-height: 90vh;
   display: flex;
@@ -433,36 +506,22 @@ missions
   background-size: cover;
   background-repeat: no-repeat;
 }
-.mission_col>h2{
-  transform: rotate(-90deg) translate(0px, -100px);
-  transform-origin: top center;
-  height: fit-content;
-  color: black;
-  background-color: white;
-  margin: 0;
-  padding: 5px 10px;
-  font-family: 'Share Tech Mono', monospace;
-  color: #000000;
-  font-size: 2rem;
-  line-height: 2.2rem;
-  /*width: 100vh;*/
-  text-align: center;
-}
 
 .past{
-  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/08/Clem_DSPSE.jpg);
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/Clem_DSPSE.jpg);
   background-position: center;
 }
 .current{
-  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/08/5d22e22da31058950191af65.jpeg);
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/5d22e22da31058950191af65.jpeg);
   background-position: center;
 }
 .resources{
-  background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/08/files_ddr_archive_1633406-scaled.jpg);
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/files_ddr_archive_1633406-scaled.jpg);
   background-position: right;
 }
 .mission_header{
   background-color: #000000;
+  z-index: 1000;
 }
 .mission_header>h1{
   font-family: 'Share Tech Mono', monospace;
@@ -475,6 +534,17 @@ missions
 #accordionPast{
   overflow: hidden;
   height: 90vh;
+  background-color: white;
+}
+#accordionCurrent{
+  overflow: hidden;
+  height: 90vh;
+  background-color: white;
+}
+#accordionResources{
+  overflow: hidden;
+  height: 90vh;
+  background-color: white;
 }
 .accordion_wraper{
   overflow-y: scroll;
@@ -551,10 +621,16 @@ a.close_button{
     color: white;
     margin: 10px 0;
     padding: 0 10px;
+    cursor: pointer;
 }
 a.close_button>p{
   margin: 5px;
   color: white;
+}
+.sticker{
+  height: 100%;
+  width: auto;
+  cursor: cell;
 }
 /*--------------------------------------------------------------
 responsive
