@@ -23,7 +23,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
           <p><?php the_field('member_name'); ?></p>
           <p><?php the_field('member_affiliation'); ?></p>
       </div>
-      <div class="col-6">
+      <div class="col-6 member_portrait">
           <img src="<?php echo $avatar['url']; ?>" alt="<?php echo $avatar['alt']; ?>" />
       </div>
     </div>

@@ -14,7 +14,7 @@ get_header(); ?>
       </div>
     </div>
     </div>
-    <div class = "container">
+    <div class = "container about_content">
     <div class="row justify-content-center">
       <?php $about_ilewg = new WP_Query(array( 'page_id' => 2 ));
 if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
