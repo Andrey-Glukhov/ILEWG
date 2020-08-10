@@ -25,7 +25,7 @@ $(document).ready(function () {
       });
       return false;
     }
-    agenda_cetegory_select
+    //agenda_cetegory_select
     $('#agenda_cetegory_select').change(submitForm);
     $('#arr_left').click(function () {
       if ($('.agenda_date_active').prev().length) {
@@ -82,4 +82,31 @@ $(document).ready(function () {
 
     });
   }
+  if ($('.opener').length) {
+    function getLocalDate() {
+      var localDate = new Date();
+      var monthNames = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "No", "Dec"
+      ];
+      var formatedDate = localDate.getUTCDate() + ' ' + monthNames[localDate.getUTCMonth()] + ' ' + localDate.getUTCFullYear() + ' ' + localDate.getUTCHours() + ':00 UT';
+      console.log(formatedDate);
+      $.ajax({
+        url: url_ajax.url,
+        data: {
+          moon_local_date: formatedDate,
+          action: 'moon_phase_action'
+        },
+        type: 'post',
+       beforeSend: function() {
+        
+        },
+        success: function (data) {
+          $('.opener').css('background-image','url(' +  JSON.parse(data).filename + ')');
+          $('.moon_info').html('<p>Moon phase: ' +  JSON.parse(data).phase + '. Moon age: ' + JSON.parse(data).age + '</p>')
+        }
+      });
+      return false;
+    }
+   getLocalDate(); 
+  }  
 });
