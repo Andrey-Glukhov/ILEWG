@@ -82,4 +82,42 @@ $(document).ready(function () {
 
     });
   }
+
+  if ($('.punlication_wraper').length) {
+
+    $('.reports').click(function () {
+      if ($("#accordionReports").hasClass('d-none')) {
+        $(".pubs, .news").addClass('d-none');
+        $("#accordionReports").removeClass('d-none');
+        gsap.from('#accordionReports', 2, { y: '100%' });
+      }
+    });
+
+    $('.pubs').click(function () {
+      if ($("#accordionPubs").hasClass('d-none')) {
+        $(".news, .reports").addClass('d-none');
+        $("#accordionPubs").removeClass('d-none');
+        $(this).removeClass('col-md-4 col-sm-12 order-md-2 order-sm-3 order-3');
+        $(this).addClass('col-md-4 col-sm-12 order-md-1 order-sm-2 order-2');
+        gsap.from('#accordionPubs', 3, { y: '100%' });
+      }
+    });
+
+    $('.news').click(function () {
+      if ($("#accordionNews").hasClass('d-none')) {
+        $(".reports, .pubs").addClass('d-none');
+        $("#accordionNews").removeClass('d-none');
+        $(this).removeClass('col-md-4 col-sm-12 order-md-3 order-sm-4 order-4');
+        $(this).addClass('col-md-4 col-sm-12 order-md-1 order-sm-2 order-2');
+        gsap.from('#accordionNews', 3, { y: '100%' });
+      }
+    });
+
+    $('.close_button').click(function () {
+      $(this).closest('.accordion').addClass('d-none');
+      $('.reports').attr('class', 'col-md-4 col-sm-12 order-md-1 order-sm-2 order-2 punlication_col reports');
+      $('.pubs').attr('class', 'col-md-4 col-sm-12 order-md-2 order-sm-3 order-3 mission_col pubs');
+      $('.news').attr('class', 'col-md-4 col-sm-12 order-md-3 order-sm-4 order-4 mission_col news');
+    });
+  }
 });
