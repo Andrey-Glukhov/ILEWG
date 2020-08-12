@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <div class = "opener"></div>
+<div class="moon_info"></div>
 <div class="about">
   <div class="container-fluid">
     <div class="row section_title">

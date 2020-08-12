@@ -60,6 +60,7 @@ function my_acf_block_render_callback( $block ) {
 add_action('wp_ajax_filter_action', 'filter_action_callback');
 add_action('wp_ajax_nopriv_filter_action', 'filter_action_callback');
 function filter_action_callback() {
+  $result_html = '';
   if (isset($_POST['post_date_select'])) {
     $filter_value =  $_POST['post_date_select'];
     $select_date = new DateTime('01.'.$filter_value );
@@ -127,6 +128,47 @@ function filter_action_callback() {
       };
     wp_reset_query();
 	echo $result_html;
+
+	wp_die();
+}
+
+class moonRecord {
+  public $str_date;
+  public $phase;
+  public $age;
+  public $filename;
+  public function __construct($str_date, $phase, $age, $filename) {
+    $this->str_date = $str_date;
+    $this->phase = $phase;
+    $this->age = $age;
+    $this->filename = $filename;
+    }
+}
+add_action('wp_ajax_moon_phase_action', 'moon_phase_action_callback');
+add_action('wp_ajax_nopriv_moon_phase_action', 'moon_phase_action_callback');
+function moon_phase_action_callback() {
+  $result_php = 'wwww';
+  if (isset($_POST['moon_local_date'])) {
+    $phase_list = file_get_contents(wp_get_upload_dir()['baseurl']."/2020/07/".'mooninfo_2020min.json');
+    $info = json_decode($phase_list);
+    $durl = 'https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.';
+    foreach ($info as $item) {
+      if ($item->str_date == $_POST['moon_local_date']) {
+        $total_minuts = floor( 24*60 * $item->age);
+        $age_days = floor($total_minuts/1440);
+        $age_hours = floor($total_minuts/60) - $age_days* 24;
+        $age_minuts =  $total_minuts -$age_hours*60 - $age_days*1440;
+        $str_age = '' . $age_days . 'd ' . $age_hours . 'h ' . $age_minuts . 'm'; 
+        $new_item = new moonRecord($item->str_date, $item->phase, $str_age, $durl.sprintf( '%04d', $item->filename ).'.jpg');
+      }
+    }
+     if (isset($new_item)) {
+     $result_php = json_encode($new_item);
+     } 
+    
+  }  
+  wp_reset_query();
+	echo $result_php;
 
 	wp_die();
 }

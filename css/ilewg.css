@@ -127,6 +127,7 @@ home page
   width: 100vw;
   height: 100vh;
   background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/neven-krcmarek-9dTg44Qhx1Q-unsplash.jpg);
+  /*background-image: url(http://192.168.1.5/wptest4/wordpress/wp-content/uploads/2020/05/moon_illustration_a.png);*/
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
