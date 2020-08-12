@@ -151,7 +151,8 @@ function moon_phase_action_callback() {
   if (isset($_POST['moon_local_date'])) {
     $phase_list = file_get_contents(wp_get_upload_dir()['baseurl']."/2020/07/".'mooninfo_2020min.json');
     $info = json_decode($phase_list);
-    $durl = 'https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.';
+   // $durl = 'https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.';
+    $durl = wp_get_upload_dir()['baseurl']."/2020/07/";
     foreach ($info as $item) {
       if ($item->str_date == $_POST['moon_local_date']) {
         $total_minuts = floor( 24*60 * $item->age);

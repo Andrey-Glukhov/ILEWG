@@ -53,7 +53,7 @@ navigation
   padding: 0;
   height: 100%;
   width: 30vw;
-  transform: translateX(5vw);
+  /*transform: translateX(5vw);*/
   position: relative;
   z-index: 1000;
   background-color: #000000;
@@ -64,7 +64,7 @@ navigation
 }
 .menu_wraper{
   height: 100%;
-  width: 35vw;
+  width: 30vw;
   top: 0;
   right: 0;
   position: fixed;
@@ -77,10 +77,12 @@ navigation
 }
 .menu_button{
   position: absolute;
-  margin-top: 50px;
+  /* margin-top: 50px;
   margin-left: 5px;
-  padding: 10px 25px 25px 25px;
+  padding: 10px 25px 25px 25px; */
   cursor: pointer;
+  right: 30vw;
+
 }
 
 #menu_svg_img{
@@ -131,6 +133,7 @@ home page
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-color: #000000;
 }
 /*--------------------------------------------------------------
 about
