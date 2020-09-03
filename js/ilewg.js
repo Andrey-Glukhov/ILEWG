@@ -15,7 +15,8 @@ $(document).ready(function () {
         data: {
           post_date_select: filterDate,
           post_category_select: filterCategory,
-          action: 'filter_action'
+          action: 'filter_action',
+          _ajax_nonce: url_ajax.nonce
         },
         type: 'post',
         action: 'filter_action',
@@ -128,17 +129,22 @@ $(document).ready(function () {
       var monthNames = [
         "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "No", "Dec"
       ];
-      var formatedDate = localDate.getUTCDate() + ' ' + monthNames[localDate.getUTCMonth()] + ' ' + localDate.getUTCFullYear() + ' ' + localDate.getUTCHours() + ':00 UT';
-      console.log(formatedDate);
+      var locDateLong =String(localDate.getUTCDate());
+      for (var i=locDateLong.length; i<2; i++) {
+        locDateLong = '0' + locDateLong;
+      }
+
+      var formatedDate = locDateLong + ' ' + monthNames[localDate.getUTCMonth()] + ' ' + localDate.getUTCFullYear() + ' ' + localDate.getUTCHours() + ':00 UT';
       $.ajax({
         url: url_ajax.url,
         data: {
           moon_local_date: formatedDate,
-          action: 'moon_phase_action'
+          action: 'moon_phase_action',
+          _ajax_nonce: url_ajax.nonce
         },
         type: 'post',
-       beforeSend: function() {
-
+       beforeSend: function(xhr) {
+          
         },
         success: function (data) {
           $('.opener').css('background-image','url(' +  JSON.parse(data).filename + ')');
