@@ -82,7 +82,7 @@ get_header(); ?>
       </div>
 
 
-      <div class="accordion col-md-8 col-sm-12 order-md-2 order-sm-2 order-2 d-none" id="accordionPubs">
+      <div class="accordion col-md-6 col-sm-12 order-md-2 order-sm-2 order-2 d-none" id="accordionIceum">
 
         <div class="container accordion_wraper">
           <div class="row">
@@ -104,49 +104,29 @@ get_header(); ?>
 
           <div class="row past_missions_row">
             <div class="col-3 mission_year">
-              <p><?php the_field('pub_year'); ?></p>
+              <p><?php the_field('session_year'); ?></p>
             </div>
             <div class="col-6 mission_name">
-              <h3><?php the_field('pub_title'); ?></h3>
+              <h3><?php the_title(); ?></h3>
             </div>
-            <div class="col-3 mission-header" id="<?php the_field('publication_class'); ?>">
-              <a class="collapsed unfold" type="button" data-toggle="collapse" data-target="#collapse<?php the_field('publication_class'); ?>" aria-expanded="true" aria-controls="collapse<?php the_field('publication_class'); ?>">
+            <div class="col-3 mission-header" id="<?php the_field('session_class'); ?>">
+              <a class="collapsed unfold" type="button" data-toggle="collapse" data-target="#collapse<?php the_field('session_class'); ?>" aria-expanded="true" aria-controls="collapse<?php the_field('session_class'); ?>">
                 +
               </a>
             </div>
           </div>
 
-          <div id="collapse<?php the_field('publication_class'); ?>" class="row justify-content-end collapse" aria-labelledby="<?php the_field('publication_class'); ?>" data-parent="#accordionPubs">
+          <div id="collapse<?php the_field('session_class'); ?>" class="row justify-content-end collapse" aria-labelledby="<?php the_field('session_class'); ?>" data-parent="#accordionIceum">
             <div class="col-9 card-body">
-              <p><?php the_field('pub_description'); ?></p>
+              <p><?php the_content(); ?></p>
             </div>
           </div>
         <?php endwhile; ?>
       <?php endif; ?>
     </div>
-    </div>
-
-
-    </div>
   </div>
-  <?php
-  $args = array(
-    'post_type' => 'session',
-    'post_status' => 'publish',
-    'category_name' => 'iceum',
-    'posts_per_page' => -1,
-  );
-
-  $sessions = new WP_Query($args);
-  if($sessions->have_posts() ) : while ( $sessions->have_posts() ) : $sessions->the_post(); ?>
-
-  <div>
-    <p><?php the_title()?></p>
-  </div>
-
-<?php endwhile; ?>
-<?php endif; ?>
-
+</div>
+</div>
 </div>
 
 

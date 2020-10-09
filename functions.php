@@ -159,15 +159,15 @@ function moon_phase_action_callback() {
         $age_days = floor($total_minuts/1440);
         $age_hours = floor($total_minuts/60) - $age_days* 24;
         $age_minuts =  $total_minuts -$age_hours*60 - $age_days*1440;
-        $str_age = '' . $age_days . 'd ' . $age_hours . 'h ' . $age_minuts . 'm'; 
-        $new_item = new moonRecord($item->str_date, $item->phase, $str_age, $durl.sprintf( '%04d', $item->filename ).'.jpg');
+        $str_age = '' . $age_days . 'd ' . $age_hours . 'h ' . $age_minuts . 'm';
+        $new_item = new moonRecord($item->str_date, $item->phase, $str_age, $durl.sprintf( '%04d', $item->filename ).'.png');
       }
     }
      if (isset($new_item)) {
      $result_php = json_encode($new_item);
-     } 
-    
-  }  
+     }
+
+  }
   wp_reset_query();
 	echo $result_php;
 

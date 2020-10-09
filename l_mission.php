@@ -9,6 +9,7 @@ get_header(); ?>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4 col-sm-12 order-md-1 order-sm-2 order-2 mission_col past">
+      <div class="past_background"></div>
       <svg id="past_sticker" class="sticker" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.5 1080">
         <defs>
           <style>
@@ -37,9 +38,9 @@ get_header(); ?>
             <path class="cls-2" d="M67.56,301.27q3,3.3,3,9.48v10.08h-5.4V310a5.92,5.92,0,0,0-1.56-4.26,5,5,0,0,0-3.76-1.64H52.47a5.2,5.2,0,0,0-3.44,1.1,4.07,4.07,0,0,0-1.32,3.3v2.13A11.13,11.13,0,0,1,44.63,319q-3.09,3.06-9,3.06H33c-4,0-7-1.11-9.06-3.31s-3-5.36-3-9.48V299.1h5.39V310a5.88,5.88,0,0,0,1.56,4.26,5,5,0,0,0,3.77,1.64H37a5.05,5.05,0,0,0,3.66-1.42,4.94,4.94,0,0,0,1.46-3.69v-2.13q0-5,2.91-7.85t8.8-2.8h4.69Q64.54,298,67.56,301.27Z"/>
           </g>
       </svg>
-
     </div>
     <div class="col-md-4 col-sm-12 order-md-2 order-sm-3 order-3 mission_col current">
+      <div class="current_background"></div>
       <svg id="current_sticker" class="sticker" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.5 1080">
         <defs>
           <style>
@@ -74,6 +75,7 @@ get_header(); ?>
 
     </div>
     <div class="col-md-4 col-sm-12 order-md-3 order-sm-4 order-4 mission_col resources">
+        <div class="resources_background"></div>
       <svg id="resources_sticker" class="sticker" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.5 1080">
         <defs>
           <style>

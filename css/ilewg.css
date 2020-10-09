@@ -77,12 +77,8 @@ navigation
 }
 .menu_button{
   position: absolute;
-  /* margin-top: 50px;
-  margin-left: 5px;
-  padding: 10px 25px 25px 25px; */
   cursor: pointer;
   right: 29vw;
-
 }
 
 #menu_svg_img{
@@ -310,6 +306,16 @@ transform: rotate(-90deg) translate(-100px);
   font-family: 'Share Tech Mono', monospace;
   color:#000000;
   font-size: 2rem;
+}
+#accordionIceum{
+  overflow: hidden;
+  height: 90vh;
+  background-color: white;
+}
+.collapse>.card-body>ul>li{
+  font-family: 'Share Tech Mono', monospace;
+  color:#000000;
+  font-size: 1.2rem;
 }
 /*--------------------------------------------------------------
 agenda
@@ -544,20 +550,54 @@ missions
   align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.past{
+.past_background{
   background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/Clem_DSPSE.jpg);
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .6s;
 }
-.current{
+.mission_col:hover .past_background,
+.mission_col:focus .past_background {
+  transform: scale(1.1);
+}
+.current_background{
   background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/5d22e22da31058950191af65.jpeg);
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .6s;
 }
-.resources{
+.mission_col:hover .current_background,
+.mission_col:focus .current_background {
+  transform: scale(1.1);
+}
+.resources_background{
   background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/files_ddr_archive_1633406-scaled.jpg);
   background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .6s;
 }
+.mission_col:hover .resources_background,
+.mission_col:focus .resources_background {
+  transform: scale(1.1);
+}
+
 .mission_header{
   background-color: #000000;
   z-index: 1000;
@@ -670,6 +710,8 @@ a.close_button>p{
   height: 100%;
   width: auto;
   cursor: cell;
+  padding-left: 15px;
+  z-index: 1000;
 }
 /*--------------------------------------------------------------
 responsive
@@ -677,17 +719,89 @@ responsive
 /*xs*/
 @media only screen and (max-width: 576px) {
 
+  /*-------navigation--------*/
+  .menu_wraper{
+    width: 82vw;
+    transform: translateX(82vw);
+  }
+  .menu_wraper.active{
+    transform: translateX(0);
+  }
+  .menu_button{
+    right: 81vw;
+  }
+  .menu_nav {
+    width: 82vw;
+  }
+    /*-------missions--------*/
+  .mission_col{
+    min-height: 60vh;
+    max-height: 70vh;
+  }
+  .sticker{
+    display: none;
+  }
 }
 /*sm*/
 @media screen and (min-width: 576px) and (max-width: 768px) {
 
+    /*-------navigation--------*/
+    .menu_wraper{
+      width: 62vw;
+      transform: translateX(62vw);
+    }
+    .menu_wraper.active{
+      transform: translateX(0);
+    }
+    .menu_button{
+      right: 61vw;
+    }
+    .menu_nav {
+      width: 62vw;
+    }
+    /*-------missions--------*/
+  .mission_col{
+    min-height: 70vh;
+    max-height: 80vh;
+  }
+  .sticker{
+    display: none;
+  }
+
 }
 /*md*/
 @media screen and (min-width: 768px) and (max-width: 992px){
-
+  /*-------navigation--------*/
+  .menu_wraper{
+    width: 42vw;
+    transform: translateX(42vw);
+  }
+  .menu_wraper.active{
+    transform: translateX(0);
+  }
+  .menu_button{
+    right: 41vw;
+  }
+  .menu_nav {
+    width: 42vw;
+  }
+  /*-------missions--------*/
+.mission_col{
+  min-height: 90vh;
+}
+.sticker{
+  display: block;
+}
 }
 
 /*lg*/
 @media screen and (min-width: 992px)  {
 
+  /*-------missions--------*/
+.mission_col{
+  min-height: 90vh;
+}
+.sticker{
+  display: block;
+}
 }

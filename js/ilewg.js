@@ -122,6 +122,25 @@ $(document).ready(function () {
     });
   }
 
+
+  if ($('.sessions_wraper').length) {
+
+    $('.iceum').click(function () {
+      if ($("#accordionIceum").hasClass('d-none')) {
+        $(".sponsored").addClass('d-none');
+        $("#accordionIceum").removeClass('d-none');
+        gsap.from('#accordionIceum', 2, { y: '100%' });
+      }
+    });
+
+    $('.close_button').click(function () {
+      $(this).closest('.accordion').addClass('d-none');
+      $('.sponsored').attr('class', 'col-md-6 col-sm-12 order-md-1 order-sm-2 order-2 punlication_col sponsored');
+    });
+  }
+
+
+
   if ($('.opener').length) {
     function getLocalDate() {
       var localDate = new Date();
