@@ -7,7 +7,8 @@ function ilewg_script_enqueue(){
   wp_enqueue_script( 'ilewg-js', get_template_directory_uri() . '/js/ilewg.js', array('jquery'), '1.0.0', true );
   wp_localize_script( 'ilewg-js', 'url_ajax',
 		array(
-			'url' => admin_url('admin-ajax.php')
+      'url' => admin_url('admin-ajax.php'),
+      'nonce'       => wp_create_nonce( 'ilewg-js_nonce' )
 		)
 	);
 
@@ -60,6 +61,7 @@ function my_acf_block_render_callback( $block ) {
 add_action('wp_ajax_filter_action', 'filter_action_callback');
 add_action('wp_ajax_nopriv_filter_action', 'filter_action_callback');
 function filter_action_callback() {
+  check_ajax_referer( 'ilewg-js_nonce');
   $result_html = '';
   if (isset($_POST['post_date_select'])) {
     $filter_value =  $_POST['post_date_select'];
@@ -147,7 +149,8 @@ class moonRecord {
 add_action('wp_ajax_moon_phase_action', 'moon_phase_action_callback');
 add_action('wp_ajax_nopriv_moon_phase_action', 'moon_phase_action_callback');
 function moon_phase_action_callback() {
-  $result_php = 'wwww';
+  check_ajax_referer( 'ilewg-js_nonce');
+  $result_php = '{}';
   if (isset($_POST['moon_local_date'])) {
     $phase_list = file_get_contents(wp_get_upload_dir()['baseurl']."/2020/07/".'mooninfo_2020min.json');
     $info = json_decode($phase_list);
@@ -163,7 +166,7 @@ function moon_phase_action_callback() {
         $new_item = new moonRecord($item->str_date, $item->phase, $str_age, $durl.sprintf( '%04d', $item->filename ).'.png');
       }
     }
-     if (isset($new_item)) {
+    if (isset($new_item)) {
      $result_php = json_encode($new_item);
      }
 
