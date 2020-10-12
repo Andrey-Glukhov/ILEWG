@@ -118,8 +118,8 @@ $(document).ready(function () {
     $('.close_button').click(function () {
       $(this).closest('.accordion').addClass('d-none');
       $('.reports').attr('class', 'col-md-4 col-sm-12 order-md-1 order-sm-2 order-2 punlication_col reports');
-      $('.pubs').attr('class', 'col-md-4 col-sm-12 order-md-2 order-sm-3 order-3 mission_col pubs');
-      $('.news').attr('class', 'col-md-4 col-sm-12 order-md-3 order-sm-4 order-4 mission_col news');
+      $('.pubs').attr('class', 'col-md-4 col-sm-12 order-md-2 order-sm-3 order-3 punlication_col  pubs');
+      $('.news').attr('class', 'col-md-4 col-sm-12 order-md-3 order-sm-4 order-4 punlication_col  news');
     });
   }
 
@@ -134,9 +134,20 @@ $(document).ready(function () {
       }
     });
 
+    $('.sponsored').click(function () {
+      if ($("#accordionSponsored").hasClass('d-none')) {
+        $(".iceum").addClass('d-none');
+        $("#accordionSponsored").removeClass('d-none');
+        $(this).removeClass('col-md-6 col-sm-12 order-md-2 order-sm-3 order-3');
+        $(this).addClass('col-md-6 col-sm-12 order-md-1 order-sm-2 order-2' );
+        gsap.from('#accordionSponsored', 2, { y: '100%' });
+      }
+    });
+
     $('.close_button').click(function () {
       $(this).closest('.accordion').addClass('d-none');
-      $('.sponsored').attr('class', 'col-md-6 col-sm-12 order-md-1 order-sm-2 order-2 punlication_col sponsored');
+      $('.sponsored').attr('class', 'col-md-6 col-sm-12 order-md-2 order-sm-3 order-3 sessions_col sponsored');
+      $('.iceum').attr('class', 'col-md-6 col-sm-12 order-md-1 order-sm-2 order-2 sessions_col iceum');
     });
   }
 

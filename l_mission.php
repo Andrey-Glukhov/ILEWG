@@ -117,7 +117,7 @@ get_header(); ?>
     <div class="col-12 order-md-12 order-sm-1 order-1 mission_header">
       <h1>LUNAR MISSIONS</h1>
     </div>
-    <?php $p_missions = new WP_Query(array( 'page_id' => 8 ));?>
+    <?php //$p_missions = new WP_Query(array( 'page_id' => 8 ));?>
 
     <div class="accordion col-md-8 col-sm-12 order-md-2 order-sm-2 order-2 d-none" id="accordionPast">
 

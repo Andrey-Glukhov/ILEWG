@@ -7,13 +7,13 @@ get_header(); ?>
   <div class = "container-fluid">
     <div class = "row">
       <div class="col-md-6 col-sm-12 order-md-1 order-sm-2 order-2 sessions_col iceum">
+        <div class="iceum_background"></div>
         <svg id="iceum_sticker" class="sticker" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.5 1080">
           <defs>
             <style>
             .iceum-1 {
               fill: #fff;
             }
-
             .iceum-2 {
               fill: #231f20;
             }
@@ -36,17 +36,16 @@ get_header(); ?>
             <path class="iceum-2" d="M67.56,282.09q3,3.3,3,9.48v10.08h-5.4V290.86a5.92,5.92,0,0,0-1.56-4.26A5,5,0,0,0,59.86,285H52.47a5.2,5.2,0,0,0-3.44,1.1,4.08,4.08,0,0,0-1.32,3.31v2.13a11.12,11.12,0,0,1-3.08,8.3q-3.09,3.06-9,3.06H33c-4,0-7-1.1-9.06-3.31s-3-5.36-3-9.47V279.92h5.39v10.87a5.92,5.92,0,0,0,1.56,4.26,5,5,0,0,0,3.77,1.63H37a5,5,0,0,0,3.66-1.42,4.94,4.94,0,0,0,1.46-3.69v-2.13q0-5,2.91-7.85t8.8-2.8h4.69Q64.54,278.79,67.56,282.09Z"/>
           </g>
         </svg>
-
       </div>
 
-      <div class="col-md-6 col-sm-12 order-md-1 order-sm-2 order-2 sessions_col sponsored">
+      <div class="col-md-6 col-sm-12 order-md-2 order-sm-3 order-3 sessions_col sponsored">
+        <div class="sponsored_background"></div>
         <svg id="sponsored_sticker" class="sticker" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.5 1080">
           <defs>
             <style>
             .sponsored-1 {
               fill: #fff;
             }
-
             .sponsored-2 {
               fill: #231f20;
             }
@@ -76,7 +75,7 @@ get_header(); ?>
             <path class="sponsored-2" d="M67.56,147.9q3,3.3,3,9.48v10.08h-5.4V156.67a5.92,5.92,0,0,0-1.56-4.26,5,5,0,0,0-3.76-1.64H52.47a5.2,5.2,0,0,0-3.44,1.1,4.08,4.08,0,0,0-1.32,3.31v2.13a11.12,11.12,0,0,1-3.08,8.3q-3.09,3.06-9,3.06H33c-4,0-7-1.1-9.06-3.31s-3-5.36-3-9.47V145.73h5.39V156.6a5.92,5.92,0,0,0,1.56,4.26,5,5,0,0,0,3.77,1.63H37a5,5,0,0,0,3.66-1.42,4.94,4.94,0,0,0,1.46-3.69v-2.13q0-5,2.91-7.85t8.8-2.8h4.69Q64.54,144.6,67.56,147.9Z"/>
           </g>
         </svg>
-      </div>
+       </div>
       <div class="col-12 order-md-12 order-sm-1 order-1 sessions_header">
         <h1>ILEWG SESSIONS</h1>
       </div>
@@ -103,20 +102,17 @@ get_header(); ?>
           if($iceum->have_posts() ) : while ( $iceum->have_posts() ) : $iceum->the_post(); ?>
 
           <div class="row past_missions_row">
-            <div class="col-3 mission_year">
-              <p><?php the_field('session_year'); ?></p>
-            </div>
-            <div class="col-6 mission_name">
+            <div class="col-9 mission_name">
               <h3><?php the_title(); ?></h3>
             </div>
-            <div class="col-3 mission-header" id="<?php the_field('session_class'); ?>">
-              <a class="collapsed unfold" type="button" data-toggle="collapse" data-target="#collapse<?php the_field('session_class'); ?>" aria-expanded="true" aria-controls="collapse<?php the_field('session_class'); ?>">
+            <div class="col-3 mission-header" id="sessions_<?php the_ID(); ?>">
+              <a class="collapsed unfold" type="button" data-toggle="collapse" data-target="#collapse_session_<?php the_ID(); ?>" aria-expanded="true" aria-controls="#collapse_session_<?php the_ID(); ?>">
                 +
               </a>
             </div>
           </div>
 
-          <div id="collapse<?php the_field('session_class'); ?>" class="row justify-content-end collapse" aria-labelledby="<?php the_field('session_class'); ?>" data-parent="#accordionIceum">
+          <div id="collapse_session_<?php the_ID(); ?>" class="row justify-content-end collapse" aria-labelledby="sessions_<?php the_ID(); ?>" data-parent="#accordionIceum">
             <div class="col-9 card-body">
               <p><?php the_content(); ?></p>
             </div>
@@ -125,6 +121,52 @@ get_header(); ?>
       <?php endif; ?>
     </div>
   </div>
+
+  <div class="accordion col-md-6 col-sm-12 order-md-2 order-sm-2 order-2 d-none" id="accordionSponsored">
+
+<div class="container accordion_wraper">
+  <div class="row">
+    <div class="col-12">
+      <a class="close_button"><p>Close</p><p>X</p></a>
+    </div>
+  </div>
+
+  <?php
+  $sponsored_args = array(
+    'post_type' => 'session',
+    'post_status' => 'publish',
+    'category_name' => 'co-sponsored',
+    'posts_per_page' => -1,
+  );
+
+  $sponsored = new WP_Query($sponsored_args);
+  if($sponsored->have_posts() ) : while ( $sponsored->have_posts() ) : $sponsored->the_post(); ?>
+
+  <div class="row past_missions_row">
+    <div class="col-3 mission_year">
+      <p><?php the_field('session_year'); ?></p>
+    </div>
+    <div class="col-6 mission_name">
+      <h3><?php the_title(); ?></h3>
+    </div>
+    <div class="col-3 mission-header" id="sessions_<?php the_ID(); ?>">
+      <a class="collapsed unfold" type="button" data-toggle="collapse" data-target="#collapse_session_<?php the_ID(); ?>" aria-expanded="true" aria-controls="#collapse_session_<?php the_ID(); ?>">
+        +
+      </a>
+    </div>
+  </div>
+
+  <div id="collapse_session_<?php the_ID(); ?>" class="row justify-content-end collapse" aria-labelledby="sessions_<?php the_ID(); ?>" data-parent="#accordionSponsored">
+    <div class="col-9 card-body">
+      <p><?php the_content(); ?></p>
+    </div>
+  </div>
+<?php endwhile; ?>
+<?php endif; ?>
+</div>
+</div>
+
+
 </div>
 </div>
 </div>

@@ -147,7 +147,7 @@ about
   margin: 0;
 }
 .about_header_img{
-  background-image: url(http://localhost:8888/wordpress/wp-content/uploads/2020/08/constructed_pillars_edit.jpg);
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/constructed_pillars_edit.jpg);
   /* background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/constructed_pillars_edit.jpg); */
   background-position: center;
   height: 90vh;
@@ -190,7 +190,7 @@ task groups
 }
 .taskgroups_intro_image{
   height: 100vh;
-  background-image: url(http://localhost:8888/wordpress/wp-content/uploads/2020/05/spacewastedaannew2.jpg);
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/05/spacewastedaannew2.jpg);
   /* background-image: url(http://localhost:8888/wptest4/wordpress/wp-content/uploads/2020/05/spacewastedaannew2.jpg); */
   background-size: cover;
   background-repeat: no-repeat;
@@ -265,6 +265,8 @@ sessions
   align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all .6s;
 }
 .sessions_header{
   background-color: #000000;
@@ -289,14 +291,43 @@ transform: rotate(-90deg) translate(-100px);
   height: 100%;
   min-height: 100vh;
 }
-.iceum{
-  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/chuttersnap-Q_KdjKxntH8-unsplash-scaled.jpg);
+/* .iceum{
+  
   background-position: left;
+} */
+.iceum_background{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/chuttersnap-Q_KdjKxntH8-unsplash-scaled.jpg);
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .6s;
 }
-.sponsored{
+.sessions_col:hover .iceum_background,
+.sessions_col:focus .iceum_background {
+  transform: scale(1.1);
+}
+/* .sponsored{
   background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/christian-fregnan-WTWvcuIpm1c-unsplash-scaled.jpg);
   background-position: left;
+} */
+.sponsored_background{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/christian-fregnan-WTWvcuIpm1c-unsplash-scaled.jpg);
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .6s;
 }
+.sessions_col:hover .sponsored_background,
+.sessions_col:focus .sponsored_background {
+  transform: scale(1.1);
+}
+
 .iceum_block, .co-sponsored_block{
   width: 100%;
   margin: 0 80px;
@@ -314,11 +345,17 @@ transform: rotate(-90deg) translate(-100px);
   height: 90vh;
   background-color: white;
 }
+#accordionSponsored{
+  overflow: hidden;
+  height: 90vh;
+  background-color: white;
+}
 .collapse>.card-body>ul>li{
   font-family: 'Share Tech Mono', monospace;
   color:#000000;
   font-size: 1.2rem;
 }
+
 /*--------------------------------------------------------------
 agenda
 --------------------------------------------------------------*/
@@ -367,7 +404,7 @@ agenda
 }
 .agenda_image{
   background-position: right;
-  background-image: url(http://localhost:8888/wordpress/wp-content/uploads/2020/07/Untitled-1.jpg);
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/Untitled-1.jpg);
   /* background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/07/Untitled-1.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -523,17 +560,59 @@ publications
   padding: 10px;
   margin: 0;
 }
-.reports{
+/* .reports{
   background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/files_paper_office_paperwork-scaled.jpg);
   background-position: left;
+} */
+.reports_background{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/files_paper_office_paperwork-scaled.jpg);
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .6s;
 }
-.pubs{
+.punlication_col:hover .reports_background,
+.punlication_col:focus .reports_background {
+  transform: scale(1.1);
+}
+/* .pubs{
   background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/books_book_corners_paper-scaled.jpg);
   background-position: center;
+} */
+.pubs_background{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/books_book_corners_paper-scaled.jpg);
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .6s;
 }
-.news{
+.punlication_col:hover .pubs_background,
+.punlication_col:focus .pubs_background {
+  transform: scale(1.1);
+}
+/* .news{
   background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/news_newsletter_newspaper_1591767-copy-scaled.jpg);
   background-position: center;
+} */
+.news_background{
+  background-image: url(http://localhost:8888/ILEWG/wordpress/wp-content/uploads/2020/08/news_newsletter_newspaper_1591767-copy-scaled.jpg);
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .6s;
+}
+.punlication_col:hover .news_background,
+.punlication_col:focus .news_background {
+  transform: scale(1.1);
 }
 #accordionReports, #accordionPubs, #accordionNews{
   overflow: hidden;

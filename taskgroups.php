@@ -131,29 +131,29 @@ $(document).ready(function(){
     $(window).on('resize', function(){
       $('.section_col').height($('.section_col').width());
     });
-    var animation = anime.timeline({loop:true})
-    $('.antr_wraper .antr').each(function(){
+    // var animation = anime.timeline({loop:true})
+    // $('.antr_wraper .antr').each(function(){
 
-      $(this).html(jQuery(this).html().replace(/\S/g, "<span class='letter'>$&</span>"));
-      var tagArray =[];
-      $(this).children('.letter').each(function() {
-        tagArray.push($(this).get());
-      });
-      animation.add({
-        targets: tagArray,
-        opacity: [0,1],
-        easing: "easeInOutQuad",
-        duration: 100,
-        autoplay: false,
-        delay: (el, i) => 50 * (i+1)
-      }).add({
-        targets: [$(this).get()],
-        opacity:0,
-        duration: 50,
-        easing: "easeOutExpo",
-        delay: 2400
-      });
-    });
+    //   $(this).html(jQuery(this).html().replace(/\S/g, "<span class='letter'>$&</span>"));
+    //   var tagArray =[];
+    //   $(this).children('.letter').each(function() {
+    //     tagArray.push($(this).get());
+    //   });
+    //   animation.add({
+    //     targets: tagArray,
+    //     opacity: [0,1],
+    //     easing: "easeInOutQuad",
+    //     duration: 100,
+    //     autoplay: false,
+    //     delay: (el, i) => 50 * (i+1)
+    //   }).add({
+    //     targets: [$(this).get()],
+    //     opacity:0,
+    //     duration: 50,
+    //     easing: "easeOutExpo",
+    //     delay: 2400
+    //   });
+    // });
 });
 
 </script>
