@@ -8,6 +8,7 @@ get_header(); ?>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4 col-sm-12 order-md-1 order-sm-2 order-2 punlication_col reports">
+      <div class="reports_background"></div>
         <svg id="reports_sticker" class="sticker" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.5 1080">
           <defs>
             <style>
@@ -39,6 +40,7 @@ get_header(); ?>
 
       </div>
       <div class="col-md-4 col-sm-12 order-md-2 order-sm-3 order-3 punlication_col pubs">
+      <div class="pubs_background"></div>
         <svg id="pubs_sticker" class="sticker" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.5 1080">
           <defs>
             <style>
@@ -75,6 +77,7 @@ get_header(); ?>
 
       </div>
       <div class="col-md-4 col-sm-12 order-md-3 order-sm-4 order-4 punlication_col news">
+      <div class="news_background"></div>
         <svg id="news_sticker" class="sticker" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.5 1080">
           <defs>
             <style>
