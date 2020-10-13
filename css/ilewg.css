@@ -539,6 +539,7 @@ publications
   background-size: cover;
   background-repeat: no-repeat;
   padding:0;
+  cursor: pointer;
   overflow: hidden;
 }
 .punlication_header{
